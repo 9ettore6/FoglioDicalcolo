@@ -5,11 +5,24 @@
 #ifndef FOGLIODICALCOLO_CELL_H
 #define FOGLIODICALCOLO_CELL_H
 
-#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QDataStream>
+
 #include "Subject.h"
 
 class Cell : public QTableWidgetItem, public Subject{
-    //code
+private:
+    std::list <Observer *> observers;
+public:
+    QTableWidgetItem* clone() const;
+    QVariant data(int) const;
+    void setData(int, const QVariant&);
+    void write(QDataStream &out)const;
+    void read(QDataStream &in);
+    bool operator<(const QTableWidgetItem & other) const;
+    virtual void subscribe(Observer *o) override;
+    virtual void unsubscribe(Observer *o) override;
+    virtual void notify() override;
 };
 
 #endif //FOGLIODICALCOLO_CELL_H
