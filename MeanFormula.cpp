@@ -1,5 +1,5 @@
 //
-// Created by Luca on 13/08/2016.
+// Created by Giulia Bellini on 24/08/16.
 //
 
 #include "MeanFormula.h"
@@ -9,16 +9,26 @@ void MeanFormula::addCell(Cell *cell) {
     (*cell).subscribe(this);
     calc();
 }
+
 void MeanFormula::removeCell(Cell *cell) {
     cells.remove(cell);
     (*cell).unsubscribe(this);
 }
+
 void MeanFormula::update() {
     calc();
 }
-void MeanFormula::calc() {
-    float result=0;
-    int dim=cells.size();
 
-    //fare il minimo
+void MeanFormula::calc() {
+    float sum = 0;
+    int count = 0;
+    for (auto itr = cells.begin(); itr != cells.end(); ++itr) {
+        sum += (*itr)->getValue();
+        count++;
+    }
+    mean = (sum / count);
+}
+
+float MeanFormula::getMean() const {
+    return mean;
 }

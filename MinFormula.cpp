@@ -1,5 +1,5 @@
 //
-// Created by Luca on 13/08/2016.
+// Created by Giulia Bellini on 24/08/16.
 //
 
 #include "MinFormula.h"
@@ -9,16 +9,23 @@ void MinFormula::addCell(Cell *cell) {
     (*cell).subscribe(this);
     calc();
 }
+
 void MinFormula::removeCell(Cell *cell) {
     cells.remove(cell);
     (*cell).unsubscribe(this);
 }
+
 void MinFormula::update() {
     calc();
 }
-void MinFormula::calc() {
-    float result=0;
-    int dim=cells.size();
 
-    //fare il minimo
+void MinFormula::calc() {
+    float result = cells.front();
+    for (auto itr = cells.begin(); itr != cells.end(); ++itr)
+        if (result < (*itr)->getValue())
+           min = result;
+}
+
+float MinFormula::getMin() const {
+    return min;
 }
