@@ -1,25 +1,28 @@
 //
-// Created by Luca on 13/08/2016.
+// Created by Giulia Bellini on 24/08/16.
 //
 
-#ifndef FOGLIODICALCOLO_MEANFORMULA_H
-#define FOGLIODICALCOLO_MEANFORMULA_H
-
+#ifndef FOGLIOCALCOLO_MEANFORMULA_H
+#define FOGLIOCALCOLO_MEANFORMULA_H
 
 #include <list>
 #include "Observer.h"
 #include "Cell.h"
 
 class MeanFormula : public Observer {
-private:
-    std::list<Cell *> cells;
-    int max;
 public:
     void addCell(Cell* cell);
     void removeCell(Cell* cell);
     virtual void update() override;
     void calc();
+
+    float getMean() const;
+
+private:
+    std::list<Cell *> cells;
+    float mean;
+    float sum;
+    int count;
 };
 
-
-#endif //FOGLIODICALCOLO_MEANFORMULA_H
+#endif //FOGLIOCALCOLO_MEANFORMULA_H
