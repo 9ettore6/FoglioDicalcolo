@@ -14,6 +14,8 @@ class Cell : public QTableWidgetItem, public Subject{
 private:
     std::list <Observer *> observers;
 public:
+    void setValue(float v);
+    std::string getValue();
     QTableWidgetItem* clone() const;
     QVariant data(int) const;
     void setData(int, const QVariant&);
