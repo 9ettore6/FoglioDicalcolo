@@ -20,9 +20,9 @@ void MaxFormula::update() {
 }
 
 void MaxFormula::calc() {
-    float result = cells.front();
+    float result = cells.front()->getValue().toFloat();
     for (auto itr = cells.begin(); itr != cells.end(); ++itr)
-        if (result > (*itr)->getValue())
+        if (result > (*itr)->getValue().toFloat())
             max = result;
 }
 

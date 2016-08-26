@@ -8,5 +8,5 @@
 TEST(cellTest, cellValueTest){
     Cell c;
     c.setValue(1);
-    ASSERT_EQ(1,c.getValue());
+    ASSERT_EQ(1,c.getValue().toFloat());
 }

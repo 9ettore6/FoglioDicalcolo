@@ -7,6 +7,8 @@
 
 #include <QTableWidgetItem>
 #include <QDataStream>
+#include <c++/string>
+#include <c++/list>
 
 #include "Subject.h"
 
@@ -15,13 +17,14 @@ private:
     std::list <Observer *> observers;
 public:
     void setValue(float v);
-    std::string getValue();
+    QString getValue();
     QTableWidgetItem* clone() const;
     QVariant data(int) const;
     void setData(int, const QVariant&);
     void write(QDataStream &out)const;
     void read(QDataStream &in);
     bool operator<(const QTableWidgetItem & other) const;
+    virtual ~Cell();
     virtual void subscribe(Observer *o) override;
     virtual void unsubscribe(Observer *o) override;
     virtual void notify() override;

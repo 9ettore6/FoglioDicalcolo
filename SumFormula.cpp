@@ -22,7 +22,7 @@ void SumFormula::update() {
 void SumFormula::calc() {
     float result = 0;
     for (auto itr = cells.begin(); itr != cells.end(); ++itr)
-        result += (*itr)->getValue();
+        result += ((*itr)->getValue()).toFloat();
     sum = result;
 }
 
