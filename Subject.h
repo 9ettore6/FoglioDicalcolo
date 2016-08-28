@@ -1,6 +1,3 @@
-//
-// Created by Luca on 12/08/2016.
-//
 
 #ifndef FOGLIODICALCOLO_SUBJECT_H
 #define FOGLIODICALCOLO_SUBJECT_H
@@ -13,7 +10,7 @@ public:
 
     virtual void subscribe(Observer* o)=0;
     virtual void unsubscribe(Observer* o)=0;
-    virtual void notify()=0;
+    virtual void notify() const=0;
 };
 
 #endif //FOGLIODICALCOLO_SUBJECT_H

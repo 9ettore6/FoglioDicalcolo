@@ -1,6 +1,3 @@
-//
-// Created by Giulia Bellini on 24/08/16.
-//
 
 #ifndef FOGLIOCALCOLO_MEANFORMULA_H
 #define FOGLIOCALCOLO_MEANFORMULA_H
@@ -11,18 +8,17 @@
 
 class MeanFormula : public Observer {
 public:
+    MeanFormula(Cell *item):item(item){}
     void addCell(Cell* cell);
     void removeCell(Cell* cell);
     virtual void update() override;
     void calc();
-
     float getMean() const;
 
 private:
     std::list<Cell *> cells;
     float mean;
-    float sum;
-    int count;
+    Cell *item;
 };
 
 #endif //FOGLIOCALCOLO_MEANFORMULA_H

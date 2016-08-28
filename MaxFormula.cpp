@@ -1,10 +1,7 @@
-//
-// Created by Giulia Bellini on 24/08/16.
-//
 
 #include "MaxFormula.h"
 
-void MaxFormula::addCell(Cell* cell) {
+void MaxFormula::addCell(Cell *cell) {
     cells.push_back(cell);
     (*cell).subscribe(this);
     calc();
@@ -20,10 +17,11 @@ void MaxFormula::update() {
 }
 
 void MaxFormula::calc() {
-    float result = cells.front()->getValue().toFloat();
-    for (auto itr = cells.begin(); itr != cells.end(); ++itr)
-        if (result > (*itr)->getValue().toFloat())
-            max = result;
+    max = (cells.front()->getValue()).toFloat();
+    for (auto itr = cells.begin(); itr != cells.end(); itr++)
+        if (max < ((*itr)->getValue()).toFloat())
+            max = ((*itr)->getValue()).toFloat();
+    item->setValue(max);
 }
 
 float MaxFormula::getMax() const {

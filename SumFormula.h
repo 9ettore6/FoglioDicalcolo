@@ -1,16 +1,17 @@
-//
-// Created by Giulia Bellini on 24/08/16.
-//
 
 #ifndef FOGLIOCALCOLO_SUMFORMULA_H
 #define FOGLIOCALCOLO_SUMFORMULA_H
 
 #include <list>
-#include "Observer.h"
 #include "Cell.h"
 
 class SumFormula : public Observer {
+private:
+    std::list<Cell *> cells;
+    float sum;
+    Cell *item;
 public:
+    SumFormula(Cell *item):item(item){}
     void addCell(Cell* cell);
     void removeCell(Cell* cell);
     virtual void update() override;
@@ -18,9 +19,6 @@ public:
 
     float getSum() const;
 
-private:
-    std::list<Cell *> cells;
-    float sum;
 };
 
 #endif //FOGLIOCALCOLO_SUMFORMULA_H

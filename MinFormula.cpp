@@ -1,6 +1,3 @@
-//
-// Created by Giulia Bellini on 24/08/16.
-//
 
 #include "MinFormula.h"
 
@@ -20,10 +17,11 @@ void MinFormula::update() {
 }
 
 void MinFormula::calc() {
-    float result = cells.front()->getValue().toFloat();
-    for (auto itr = cells.begin(); itr != cells.end(); ++itr)
-        if (result < ((*itr)->getValue()).toFloat())
-           min = result;
+    min = (cells.front()->getValue()).toFloat();
+    for (auto itr = cells.begin(); itr != cells.end(); itr++)
+        if (min > ((*itr)->getValue()).toFloat())
+            min = ((*itr)->getValue()).toFloat();
+    item->setValue(min);
 }
 
 float MinFormula::getMin() const {

@@ -1,6 +1,3 @@
-//
-// Created by Giulia Bellini on 24/08/16.
-//
 
 #include "MeanFormula.h"
 
@@ -27,6 +24,7 @@ void MeanFormula::calc() {
         count++;
     }
     mean = (sum / count);
+    item->setValue(mean);
 }
 
 float MeanFormula::getMean() const {

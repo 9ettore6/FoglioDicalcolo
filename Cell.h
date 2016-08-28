@@ -1,6 +1,3 @@
-//
-// Created by Luca on 12/08/2016.
-//
 
 #ifndef FOGLIODICALCOLO_CELL_H
 #define FOGLIODICALCOLO_CELL_H
@@ -18,16 +15,14 @@ private:
 public:
     void setValue(float v);
     QString getValue();
-    QTableWidgetItem* clone() const;
-    QVariant data(int) const;
-    void setData(int, const QVariant&);
-    void write(QDataStream &out)const;
-    void read(QDataStream &in);
-    bool operator<(const QTableWidgetItem & other) const;
-    virtual ~Cell();
+    Cell* clone() const override;
+    bool operator<(const QTableWidgetItem & other) const override;
+    void setText(const QString & text);
+    QString text() const;
+    void setData(int role, const QVariant & value);
     virtual void subscribe(Observer *o) override;
     virtual void unsubscribe(Observer *o) override;
-    virtual void notify() override;
+    virtual void notify() const override;
 };
 
 #endif //FOGLIODICALCOLO_CELL_H

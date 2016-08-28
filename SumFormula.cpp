@@ -1,6 +1,4 @@
-//
-// Created by Giulia Bellini on 24/08/16.
-//
+
 
 #include "SumFormula.h"
 
@@ -24,6 +22,7 @@ void SumFormula::calc() {
     for (auto itr = cells.begin(); itr != cells.end(); ++itr)
         result += ((*itr)->getValue()).toFloat();
     sum = result;
+    item->setValue(sum);
 }
 
 float SumFormula::getSum() const {
