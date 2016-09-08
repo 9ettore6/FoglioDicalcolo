@@ -4,21 +4,12 @@
 
 #include <list>
 #include "Cell.h"
+#include "Formula.h"
 
-class SumFormula : public Observer {
-private:
-    std::list<Cell *> cells;
-    float sum;
-    Cell *item;
+class SumFormula : public Formula {
 public:
-    SumFormula(Cell *item):item(item){}
-    void addCell(Cell* cell);
-    void removeCell(Cell* cell);
-    virtual void update() override;
-    void calc();
-
-    float getSum() const;
-
+    SumFormula(Cell *item):Formula(item){}
+    virtual void calc() override;
 };
 
 #endif //FOGLIOCALCOLO_SUMFORMULA_H

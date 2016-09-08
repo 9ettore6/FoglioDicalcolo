@@ -5,20 +5,12 @@
 #include <list>
 #include "Cell.h"
 #include "Observer.h"
+#include "Formula.h"
 
-class MaxFormula : public Observer {
+class MaxFormula : public Formula{
 public:
-    MaxFormula(Cell *item):item(item){}
-    void addCell(Cell* cell);
-    void removeCell(Cell* cell);
-    virtual void update() override;
-    void calc();
-    float getMax() const;
-
-private:
-    std::list<Cell *> cells;
-    float max;
-    Cell *item;
+    MaxFormula(Cell *item):Formula(item){}
+    virtual void calc() override;
 };
 
 #endif //FOGLIOCALCOLO_MAXFORMULA_H

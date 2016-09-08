@@ -5,20 +5,13 @@
 #include <list>
 #include "Observer.h"
 #include "Cell.h"
+#include "Formula.h"
 
-class MeanFormula : public Observer {
+class MeanFormula : public Formula {
 public:
-    MeanFormula(Cell *item):item(item){}
-    void addCell(Cell* cell);
-    void removeCell(Cell* cell);
-    virtual void update() override;
-    void calc();
-    float getMean() const;
+    MeanFormula(Cell *item):Formula(item){}
+    virtual void calc() override;
 
-private:
-    std::list<Cell *> cells;
-    float mean;
-    Cell *item;
 };
 
 #endif //FOGLIOCALCOLO_MEANFORMULA_H

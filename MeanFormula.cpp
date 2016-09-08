@@ -1,20 +1,6 @@
 
 #include "MeanFormula.h"
 
-void MeanFormula::addCell(Cell *cell) {
-    cells.push_back(cell);
-    (*cell).subscribe(this);
-    calc();
-}
-
-void MeanFormula::removeCell(Cell *cell) {
-    cells.remove(cell);
-    (*cell).unsubscribe(this);
-}
-
-void MeanFormula::update() {
-    calc();
-}
 
 void MeanFormula::calc() {
     float sum = 0;
@@ -23,10 +9,6 @@ void MeanFormula::calc() {
         sum += (*itr)->getValue().toFloat();
         count++;
     }
-    mean = (sum / count);
-    item->setValue(mean);
-}
-
-float MeanFormula::getMean() const {
-    return mean;
+    val = (sum / count);
+    item->setValue(val);
 }

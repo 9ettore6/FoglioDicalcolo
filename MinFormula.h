@@ -5,20 +5,12 @@
 #include <list>
 #include "Observer.h"
 #include "Cell.h"
+#include "Formula.h"
 
-class MinFormula : public Observer {
+class MinFormula : public Formula {
 public:
-    MinFormula(Cell *item):item(item){}
-    void addCell(Cell* cell);
-    void removeCell(Cell* cell);
-    virtual void update() override;
-    void calc();
-    float getMin() const;
-
-private:
-    std::list<Cell *> cells;
-    float min;
-    Cell *item;
+    MinFormula(Cell *item):Formula(item){}
+    virtual void calc() override;
 };
 
 #endif //FOGLIOCALCOLO_MINFORMULA_H
