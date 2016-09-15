@@ -25,34 +25,34 @@ protected:
 };
 
 TEST_F(FormulaSuit,sum){
-    SumFormula f;
+    SumFormula f(new Cell());
     f.addCell(&cella1);
     f.addCell(&cella2);
     f.addCell(&cella3);
     f.addCell(&cella4);
-    ASSERT_EQ(20,f.getSum());
+    ASSERT_EQ(20,f.getVal());
 }
 TEST_F(FormulaSuit,max){
-    MaxFormula f;
+    MaxFormula f(new Cell());
     f.addCell(&cella1);
     f.addCell(&cella2);
     f.addCell(&cella3);
     f.addCell(&cella4);
-    ASSERT_EQ(10,f.getMax());
+    ASSERT_EQ(10,f.getVal());
 }
 TEST_F(FormulaSuit,min){
-    MinFormula f;
+    MinFormula f(new Cell());
     f.addCell(&cella1);
     f.addCell(&cella2);
     f.addCell(&cella3);
     f.addCell(&cella4);
-    ASSERT_EQ(10,f.getMin());
+    ASSERT_EQ(10,f.getVal());
 }
 TEST_F(FormulaSuit,mean){
-    MeanFormula f;
+    MeanFormula f(new Cell());
     f.addCell(&cella1);
     f.addCell(&cella2);
     f.addCell(&cella3);
     f.addCell(&cella4);
-    ASSERT_EQ(5,f.getMean());
+    ASSERT_EQ(5,f.getVal());
 }
